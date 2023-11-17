@@ -1,0 +1,128 @@
+.header__content {
+    position: relative;
+    display: flex;
+    padding-top: 247px;
+    overflow: hidden; 
+}
+.header__img {
+    position: absolute;
+    top: 0;
+}
+.header__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.header__img:nth-child(1){
+    /* top: 0; */
+}
+.header__img:nth-child(2){
+    top: 40px;
+    right: 0;
+    transform: rotate(13deg);
+}
+.header__img-quote {
+    content: '';
+    position: absolute;
+    color: #323232;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+
+    width: 468px;
+    height: 124px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #D9D9D9;
+
+    top: 80px;
+    right: 410px;
+
+    padding: 22px 21px 23px 28px;
+}
+.header__img-quote::before {
+    content: '';
+    position: absolute;
+    right: -24px;
+    bottom: -78px;
+    border: 25px solid transparent;
+    border-top: 60px solid #D9D9D9;
+    transform: skew(48deg);
+}
+.header__img:nth-child(3){
+    top: auto;
+    right: 0;
+    bottom: -750px;
+}
+.header__img:nth-child(4){
+    top: 0px;
+}
+
+.header .row {
+    display: flex;
+    height: 100vh;
+    padding: 0 20px 0;
+}
+.header__text {
+    margin-bottom: 87px;
+}
+/* .header__content .container {
+    margin-top: 247px;
+} */
+.header__text h1 {
+    color: #FFF;
+    text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Tactic Sans Extra Extended';
+    font-size: 53px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 64px; /* 120.755% */
+    letter-spacing: 2.65px;
+    text-transform: uppercase;
+}
+.header__text ul li {
+    color: #D9D9D9;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 42px */
+    letter-spacing: 1.5px;
+}
+.header__text ul {
+    margin-top: 40px;
+}
+
+.header__btn {
+    width: 502px;
+    height: 92px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #FFCB12;
+    box-shadow: 10px 9px 4px 0px rgba(0, 0, 0, 0.25), 5px 4px 6px 6px rgba(237, 255, 167, 0.25) inset;
+    ;
+    margin: 0 auto 60px;
+
+    color: #272727;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header__btn:hover {
+    background: #F3BE00;
+    box-shadow: 5px 4px 8px 6px rgba(27, 14, 0, 0.25) inset;
+    color: #000;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.25);
+}
