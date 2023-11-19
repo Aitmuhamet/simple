@@ -3,6 +3,9 @@
 * {
     box-sizing: border-box;
 }
+button.navbar-toggler:focus {
+    outline: 0 !important;
+}
 
 /* root */
 :root {
@@ -95,6 +98,8 @@ body {
     padding-right: 60px;
 
     margin-bottom: 0;
+
+    transition: gap 1s;
 }
 
 .site-header__nav-list li {
@@ -102,7 +107,7 @@ body {
 }
 
 .site-header__nav-list a {
-    color: #4C5866;
+    color: #4C5866 !important;
     font-family: 'Roboto';
     font-size: 20px;
     font-style: normal;
@@ -112,22 +117,23 @@ body {
     padding: 0 5px;
 }
 .site-header__nav-list a:hover {
-    color: var(--violet);
+    color: var(--violet) !important;
 }
 .site-header__nav-list a:focus {
-    color: var(--dark);
+    color: var(--dark) !important;
     background: #DAD9FB;
     outline: none;
 }
 .site-header__nav-list a:active {
-    color: var(--darkviolet);
+    color: var(--darkviolet) !important;
+    background: none;
 }
 
 .site-header__nav-list a,
 .site-header__nav-list a:hover,
 .site-header__nav-list a:active,
 .site-header__nav-list a:focus {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .search-container {
@@ -173,11 +179,14 @@ body {
 }
 .search-container__search:active {
     color: var(--darkviolet);
+    background: none;
 }
 
 .search-container__input_disable {
     display: none;
     width: 0;
+
+    transition: display 2s;
 }
 
 .search-container__input[type='text'] {
@@ -194,6 +203,8 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    transition: all 2s;
 }
 .search-container input::placeholder {
     color: #D1D1E5;
@@ -274,6 +285,8 @@ body {
     
     font-size: 32px;
     color: var(--dark);
+
+    overflow: hidden;
     
     cursor: pointer;
 }
@@ -296,27 +309,140 @@ body {
     left: 2px;
 }
 
+.site-header__nav-content {
+    position: relative;
+    padding: 40px 0;
+}
+
+.site-header__navbar_lower {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* при нажатии на кнопку в nav */
+.site-header__navbar_open {
+    align-items: baseline;
+    background: #EBEBEB;
+    height: 100vh;
+    z-index: 1;
+    /* transition: all 0.5s; */
+}
+
+.site-header__navbar_open .site-header__nav-list {
+    gap: 50px;
+    transition: all 1s;
+}
+
 .site-header__nav-second {
     display: none;
 }
 
+.site-header__nav-second .container {
+    padding: 0;
+}
+
+.site-header__nav-second .log-in {
+    margin-right: 20px;
+}
+
+.navbar-toggler {
+    height: 40px;
+    width: 45px;
+    margin-top: 3px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 10px;
+    background: #000;
+
+    transition: all 1s;
+}
+
+button.navbar-toggler.open span:nth-child(1) {
+    transform: rotate(45deg);
+    position: absolute;
+}
+button.navbar-toggler.open span:nth-child(2) {
+    display: none;
+}
+button.navbar-toggler.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: absolute;
+}
+
 @media (max-width: 1399.9px) {
+    
+}
+
+@media (max-width: 1199.9px) {
+    
+}
+
+@media (max-width: 991.9px) {
     .site-header__nav-list_first {
         display: none;
     }
     .site-header__nav-second {
         display: flex;
     }
+
+    .site-header__navbar {
+        padding: 13px 0;
+    }
+
+    .site-header__logo {
+        top: 16px;
+    }
+
+    .site-header__nav-list {
+        width: 991px !important;
+        max-width: 690px;
+        gap: auto;
+    }
     .site-header__nav-list_second {
         display: flex;
         justify-content: space-between;
         padding: 20px 0;
    } 
+   .site-header__nav-second .nav-link {
+        padding: 0 !important;
+        margin: 0;
+   }
+}
+
+@media (max-width: 767.9px) {
+    
+    .site-header__nav-list {
+        max-width: 510px;
+        gap: 0;
+    }
+    .site-header__nav-list a {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 575.9px) {
+    .site-header__nav-content {
+        padding: 15px 0;
+    }
     .site-header__nav-list_second {
         font-size: 18px;
         align-items: flex-start;
-   } 
+    }
+    .site-header__logo {
+        position: relative;
+        top: auto;
+        left: auto;
+    } 
 }
