@@ -215,23 +215,23 @@ body {
     line-height: normal;
 }
 
-.search-container__cross_disable {
-    display: none;
-}
-
 .search-container__cross {
     position: absolute;
     right: 0;
     display: flex;
-
+    
     width: 16px;
     height: 16px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     outline: none;
-
+    
     background-color: #D1D1E5;
+}
+
+.search-container__cross_disable {
+    display: none;
 }
 
 .search-container__cross:hover {
@@ -278,7 +278,7 @@ body {
 .log-in {
     position: relative;
     height: 32px;
-    width: 36px;
+    width: 46px;
     border-radius: 1px;
     border: none;
     background: none;
@@ -316,7 +316,7 @@ body {
 
 .site-header__navbar_lower {
     position: absolute;
-    top: 0;
+    top: 16px;
     left: 0;
 }
 /* при нажатии на кнопку в nav */
@@ -382,7 +382,11 @@ button.navbar-toggler.open span:nth-child(3) {
 }
 
 @media (max-width: 1399.9px) {
-    
+    .site-header__navbar_lower {
+        top: 16px;
+        right: 0;
+        left: auto;
+    }
 }
 
 @media (max-width: 1199.9px) {
@@ -396,9 +400,17 @@ button.navbar-toggler.open span:nth-child(3) {
     .site-header__nav-second {
         display: flex;
     }
-
+    
     .site-header__navbar {
         padding: 13px 0;
+    }
+    
+    .site-header__nav-content {
+        padding: 0;
+    }
+
+    .site-header__navbar_lower {
+        position: static;
     }
 
     .site-header__logo {
@@ -407,7 +419,7 @@ button.navbar-toggler.open span:nth-child(3) {
 
     .site-header__nav-list {
         width: 991px !important;
-        max-width: 690px;
+        max-width: 682px;
         gap: auto;
     }
     .site-header__nav-list_second {
@@ -424,7 +436,7 @@ button.navbar-toggler.open span:nth-child(3) {
 @media (max-width: 767.9px) {
     
     .site-header__nav-list {
-        max-width: 510px;
+        max-width: 500px;
         gap: 0;
     }
     .site-header__nav-list a {
@@ -445,4 +457,7 @@ button.navbar-toggler.open span:nth-child(3) {
         top: auto;
         left: auto;
     } 
+    .search-container__input[type='text'] {
+        width: 210px;
+    }
 }
