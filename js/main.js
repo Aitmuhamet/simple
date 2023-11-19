@@ -78,10 +78,10 @@ function onResize() {
     let buttonSearchContainer = searchContainerButton[0]
     
     if (screenWidth < 991 || (screenWidth > 991 && buttonSearchContainer.classList.contains('open'))) {
-        siteHeaderNavSecnd.style.display = 'flex'
+        // siteHeaderNavSecnd.style.display = 'flex'
         siteHeaderNavLstFirst.style.display = 'none'
     } else {
-        siteHeaderNavSecnd.style.display = 'none'
+        // siteHeaderNavSecnd.style.display = 'none'
         siteHeaderNavLstFirst.style.display = 'flex'
     }
 }
