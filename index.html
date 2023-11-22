@@ -17,11 +17,11 @@
       <div class="site-header__nav-bg">
         <div class="container">
           <div class="site-header__navbar">
-            <a href="#" class="site-header__logo w-sm-100 d-flex ms-auto me-auto">
-              <div class="site-header__logo-el-1"></div>
-              <div class="site-header__logo-el-2">simple</div>
-              <div class="site-header__logo-el-3"></div>
-              <div class="site-header__logo-el-4"></div>
+            <a href="#" class="site-logo site-header__logo w-sm-100 d-flex ms-auto me-auto" data-numb-logo="1">
+              <div class="site-header__logo-el-1 logo-element"></div>
+              <div class="site-header__logo-el-2 logo-element">simple</div>
+              <div class="site-header__logo-el-3 logo-element"></div>
+              <div class="site-header__logo-el-4 logo-element"></div>
             </a>
             <ul class="site-header__nav-list site-header__nav-list_first">
               <li><a href="#products">Продукция</a></li>
@@ -237,12 +237,34 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer site-footer--bg">
-    <div class="container">
-      <div class="site-footer__content">
-
+  <footer class="site-footer">
+    <div class="site-footer--bg">
+      <div class="container">
+        <div class="site-footer__content">
+          <a href="#" class="site-logo site-header__logo d-flex site-footer__logo" data-numb-logo="2">
+            <div class="site-header__logo-el-1 site-footer--logo-bg  logo-element"></div>
+            <div class="site-header__logo-el-2 site-footer--color  logo-element">simple</div>
+            <div class="site-header__logo-el-3 site-footer--logo-bg  logo-element"></div>
+            <div class="site-header__logo-el-4 site-footer--logo-bg  logo-element"></div>
+          </a>
+          <div class="site-footer__social">
+            <a href="#!">
+              <span class="site-footer__social-fb site-footer__icon"></span>
+            </a>
+            <a href="#!">
+              <span class="site-footer__social-tw site-footer__icon"></span>
+            </a>
+            <a href="#!">
+              <span class="site-footer__social-inst site-footer__icon"></span>
+            </a>
+            <a href="#!">
+              <span class="site-footer__social-yotu site-footer__icon"></span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="site-footer__rights">Simple <span class="site-footer__rights-icon"> ® </span> 2021</div>
   </footer>
 
   <script src="js/bootstrap.bundle.min.js"></script>

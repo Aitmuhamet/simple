@@ -20,6 +20,9 @@ button.navbar-toggler:focus {
 *::before {
     font-family: 'icons';
 }
+*::after {
+    font-family: 'icons-brands';
+}
 
 .search::before {
     content: '\f002';
@@ -95,6 +98,12 @@ body {
     width: 100%;
     top: 50px;
     left: 0;
+
+    transition: all 1s;
+}
+.site-header__nav-position-fixed {
+    position: fixed;
+    transition: all 1s;
 }
 
 .site-header__logo {
@@ -779,6 +788,93 @@ button.navbar-toggler.open span:nth-child(3) {
     background: #4C5866;
 }
 
+.site-footer__content {
+    min-height: 80px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+
+}
+
+.site-footer__logo,
+.site-footer__social {
+    padding: 31.5px 0;
+}
+.site-footer__logo {
+    justify-self: start;
+}
+.site-footer__social {
+    justify-self: end;
+}
+
+.site-footer--color {
+    color: white;
+}
+
+.site-footer__content .site-header__logo {
+    position: relative;
+    top: auto;
+    left: auto;
+}
+
+.site-footer--logo-bg {
+    border: 1px solid white;
+}
+
+.site-footer__icon {
+    color: #fff;
+    font-size: 24px;
+}
+
+.site-footer__social {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #fff;
+}
+
+.site-footer__social a {
+    text-decoration: none;
+}
+.site-footer__social span {
+    display: block;
+}
+
+.site-footer__social-fb::after {
+    content: '\f082';
+}
+
+.site-footer__social-tw::after {
+    content: '\f099';
+}
+
+.site-footer__social-inst::after {
+    content: '\e055';
+}
+
+.site-footer__social-yotu::after {
+    content: '\f167';
+}
+
+.site-footer__rights {
+    color: #4C5866;
+    font-family: Roboto;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+
+    display: flex;
+    justify-content: center;
+    padding: 3px 0;
+}
+
+.site-footer__rights-icon {
+    color: #BCBCBC;
+}
+
 @media (max-width: 1399.9px) {
     .site-header__navbar_lower {
         top: 16px;
@@ -1142,5 +1238,18 @@ button.navbar-toggler.open span:nth-child(3) {
     .site-main__sale-img img {
         position: relative;
         width: 100%;
+    }
+
+    .site-footer__content {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer__logo,
+    .site-footer__social {
+        justify-self: stretch;
+        justify-content: center;
+    }
+    .site-footer__social {
+        border-top: 1px solid rgba(222, 222, 222, .2);
     }
 }

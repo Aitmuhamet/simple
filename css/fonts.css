@@ -32,3 +32,9 @@
     src: url('../fonts/icons/fa-duotone-900.ttf') format('truetype');
     font-weight: 900;
 }
+
+@font-face {
+    font-family: 'icons-brands';
+    src: url('../fonts/icons/fa-brands-400.ttf') format('truetype');
+    font-weight: 400;
+}

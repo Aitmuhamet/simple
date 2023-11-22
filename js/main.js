@@ -3,14 +3,32 @@ let siteHeaderNavLower = document.querySelector('.site-header__navbar_lower')
 let siteHeaderNavLstFirst = document.querySelector('.site-header__nav-list_first')
 let siteHeaderNavSecnd = document.querySelector('.site-header__nav-second')
 let searchContainerButton = document.querySelectorAll('.search-container__search')
+let siteHeaderNavPosition = document.querySelector('.site-header__nav-position')
 
-let headerLogo = document.querySelector('.site-heaer__logo')
+let headerLogos = document.querySelectorAll('.site-heaer__logo')
 let headerLogoDiv = document.querySelectorAll('.site-header__logo div')
 
 let navToggler = document.querySelector('.navbar-toggler')
 let searchContainers = document.querySelectorAll('.search-container')
 
-const screenWidth = document.documentElement.clientWidth
+const screenWidth = document.documentElement.clientWidth;
+
+// всплытие меню при скроле наверх при ширине экрана менее 992px
+let pagePosition = window.scrollY;
+window.addEventListener('scroll', function(){
+    if (pagePosition > window.scrollY) {
+        siteHeaderNavPosition.classList.add('site-header__nav-position-fixed')
+        siteHeaderNavPosition.style.transition = 'top 400ms'
+        siteHeaderNavPosition.style.top = '51px'
+    } else {
+        siteHeaderNavPosition.classList.remove('site-header__nav-position-fixed')
+        siteHeaderNavPosition.style.transition = 'top 400ms'
+        siteHeaderNavPosition.style.top = '0px'
+    }
+    pagePosition = window.scrollY;
+})
+
+// Раскрывающееся меню
 navToggler.addEventListener('click', function () {
     if (screenWidth < 976) {
         if (navToggler.classList.contains('open')) {
@@ -39,42 +57,68 @@ navToggler.addEventListener('click', function () {
         }
     }
 })
-console.log(navToggler);
 
 // Анимация Logo
-headerLogoDiv.forEach((item, key) => {
-    let itemNumb = "";
+class SiteLogo {
+    constructor(el) {
+        this.logo = el.logo
+        this.numbLogo = el.numbLogo
+        this.logoElems = this.logo.querySelectorAll('.logo-element')
+        let elemNumb = "";
 
-    setTimeout(() => {
-        item.addEventListener('mouseover', () => {
-            clearInterval(startLogoDef);
-            if (key != 1) {
-                item.style.width = '32px'
-                itemNumb = key;
-                headerLogoDiv.forEach((item, key) => {
-                    if (key != itemNumb && key != 1) {
-                        item.style.width = '17px'
+        this.logoElems.forEach((elem, key) => {
+            setTimeout(() => {
+                elem.addEventListener('mouseover', () => {
+                    clearInterval(startLogoDef);
+                    if (key != 1) {
+                        elem.style.width = '32px'
+                        elemNumb = key;
+                        this.logoElems.forEach((elem, key) => {
+                            if (key != elemNumb && key != 1) {
+                                elem.style.width = '17px'
+                            }
+                        })
                     }
-                })
-            }
-        });
-    }, 500);
-    let startLogoDef = setInterval(logoDefault, 5000);
-})
+                });
+            }, 500);
+        })
 
-function logoDefault() {
-    headerLogoDiv.forEach((item, key) => {
-        if (key == 0 || key == 3) {
-            item.style.width = '17px'
-        } else if (key == 2) {
-            item.style.width = '32px'
-        }
-    })
+        this.logoElems.forEach((elem) => {
+            elem.addEventListener('mouseout', () => {
+                startLogoDef = setInterval(() =>{
+                    this.logoElems.forEach((elem, key) => {
+                        if (key == 0 || key == 3) {
+                            elem.style.width = '17px';
+                        } else if (key == 2) {
+                            elem.style.width = '32px';
+                        }
+                    })
+                }, 5000);
+            })
+        })
+        
+        let startLogoDef = setInterval(() =>{
+            this.logoElems.forEach((elem, key) => {
+                if (key == 0 || key == 3) {
+                    elem.style.width = '17px';
+                } else if (key == 2) {
+                    elem.style.width = '32px';
+                }
+            })
+        }, 5000);
+    }
 }
 
-setInterval(() => {
-    startLogoDef = setInterval(logoDefault, 5000);
-}, 5000);
+const siteLogos = document.querySelectorAll('.site-logo')
+siteLogos.forEach((item, key) => {
+    const numberLogo = item.getAttribute('data-numb-logo')
+    new SiteLogo({
+        logo: item,
+        numbLogo: numberLogo, 
+    })
+})
+
+
 
 // Навигационная панель
 class SiteHeaderNav {
